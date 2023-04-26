@@ -48,6 +48,39 @@ function anirban_logo_customize($wp_customize) {
       'section' => 'footer_option',
       'setting' => 'footer_customization',
   ));
+  
+  // Theme Global Color
+
+  $wp_customize-> add_section('theme_color1', array(
+    'title' => __('Global Color', 'anirban'),
+    'description' => 'You can change you color setting from here'
+  ));
+  $wp_customize-> add_setting('theme_bg_color_customization', array( 
+    'default' => '#fff;'
+  ));
+  $wp_customize-> add_control(new WP_Customize_Color_Control( $wp_customize, 'theme_bg_color_customization', array(
+    'label' => __('Background Color', 'anirban'),
+    'section' => 'theme_color1',
+    'setting' => 'theme_bg_color_customization'
+  )));
+  $wp_customize-> add_setting('theme_tx_color_customization', array(
+    'default' => '#000;'
+  ));
+  $wp_customize-> add_control(new WP_Customize_Color_Control( $wp_customize, 'theme_tx_color_customization', array(
+    'label' => __('Text Color', 'anirban'),
+    'section' => 'theme_color1',
+    'setting' => 'theme_tx_color_customization'
+  )));
 }
 add_action('customize_register' , 'anirban_logo_customize');
 
+
+
+function theme_global_color() {
+    ?>
+        <style>
+            body{ background: <?php echo get_theme_mod('theme_bg_color_customization'); ?>}
+        </style>
+    <?php
+}
+add_action('wp_head', 'theme_global_color');
