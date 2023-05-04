@@ -50,6 +50,10 @@ ul#nav {
     justify-content: start;
     justify-content: center;
 }
+/*custom font page css */
+.child_service img{
+    width: 300px;
+}
 
 /*Footer Section*/
 footer p {

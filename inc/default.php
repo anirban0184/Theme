@@ -4,8 +4,9 @@
 add_theme_support( 'title-tag' );
 
 //Theme Support function
-add_theme_support( 'post-thumbnails', array('page','post') );
+add_theme_support( 'post-thumbnails', array('page','post', 'service') );
 add_image_size('post-thumbnails', 1200, 350, true);
+add_image_size ( 'service', 350, 350, true );
 
 //The Excerpt
 function post_read_more_button($more){
